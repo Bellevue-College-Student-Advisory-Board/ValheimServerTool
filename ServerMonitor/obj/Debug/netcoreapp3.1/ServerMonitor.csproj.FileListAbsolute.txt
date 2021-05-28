@@ -1,0 +1,7 @@
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\bin\Debug\netcoreapp3.1\ServerMonitor.exe
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.csprojAssemblyReference.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.Form1.resources
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.Properties.Resources.resources
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.csproj.GenerateResource.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.AssemblyInfoInputs.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.AssemblyInfo.cs
