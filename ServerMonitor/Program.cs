@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
+using ServerMonitor.Models.Presenters;
+using ServerMonitor.Models.Views;
 
 namespace ServerMonitor
 {
@@ -16,28 +18,17 @@ namespace ServerMonitor
         [STAThread]
         static void Main()
         {
-            AWSCredentials credentials = GetAWSCredentialsByName("valheim");
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-        }
 
-        private static AWSCredentials GetAWSCredentialsByName(string profileName)
-        {
-            if (String.IsNullOrEmpty(profileName))
-            {
-                throw new ArgumentNullException("profileName cannot be null or empty");
-            }
+            IMainView mainView = new MainView();
+            IServerView serverView = new ServerView();
 
-            SharedCredentialsFile credFile = new SharedCredentialsFile();
-            CredentialProfile profile = credFile.ListProfiles().Find(p => p.Name.Equals(profileName));
-            if (profile == null)
-            {
-                throw new Exception(String.Format("Profile named {0} not found", profileName));
-            }
+            IServerPresenter serverPresenter = new ServerPresenter(serverView);
+            IMainPresenter mainPresenter = new MainPresenter(mainView, serverPresenter);
 
-            return AWSCredentialsFactory.GetAWSCredentials(profile, new SharedCredentialsFile());
+            Application.Run((MainView)mainView);
         }
     }
 }

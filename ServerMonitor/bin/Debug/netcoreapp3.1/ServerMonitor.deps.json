@@ -6,6 +6,16 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "ServerMonitor/1.0.0": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.30",
+          "AWSSDK.EC2": "3.7.7.2",
+          "ServerMonitor.Models": "1.0.0"
+        },
+        "runtime": {
+          "ServerMonitor.dll": {}
+        }
+      },
       "AWSSDK.Core/3.7.0.30": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
@@ -24,10 +34,20 @@
             "fileVersion": "3.7.7.2"
           }
         }
+      },
+      "ServerMonitor.Models/1.0.0": {
+        "runtime": {
+          "ServerMonitor.Models.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "ServerMonitor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "AWSSDK.Core/3.7.0.30": {
       "type": "package",
       "serviceable": true,
@@ -41,6 +61,11 @@
       "sha512": "sha512-EdpY+XzaJRdl7L0Ehi+7TjF9SuyJ91afT23Tk+Eb6mdqlPgaFgyKuzglIbE+gMsRVvw9EoX6YV9ilumuN1G8eg==",
       "path": "awssdk.ec2/3.7.7.2",
       "hashPath": "awssdk.ec2.3.7.7.2.nupkg.sha512"
+    },
+    "ServerMonitor.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

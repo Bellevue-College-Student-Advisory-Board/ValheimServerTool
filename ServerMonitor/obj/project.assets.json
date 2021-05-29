@@ -22,6 +22,16 @@
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.EC2.dll": {}
         }
+      },
+      "ServerMonitor.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/ServerMonitor.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ServerMonitor.Models.dll": {}
+        }
       }
     }
   },
@@ -77,12 +87,18 @@
         "tools/install.ps1",
         "tools/uninstall.ps1"
       ]
+    },
+    "ServerMonitor.Models/1.0.0": {
+      "type": "project",
+      "path": "../ServerMonitor.Models/ServerMonitor.Models.csproj",
+      "msbuildProject": "../ServerMonitor.Models/ServerMonitor.Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AWSSDK.Core >= 3.7.0.30",
-      "AWSSDK.EC2 >= 3.7.7.2"
+      "AWSSDK.EC2 >= 3.7.7.2",
+      "ServerMonitor.Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -110,7 +126,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\sathk\\source\\repos\\C#\\ValheimServerTool\\ServerMonitor.Models\\ServerMonitor.Models.csproj": {
+              "projectPath": "C:\\Users\\sathk\\source\\repos\\C#\\ValheimServerTool\\ServerMonitor.Models\\ServerMonitor.Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

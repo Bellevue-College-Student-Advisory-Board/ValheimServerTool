@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerMonitor", "ServerMonitor\ServerMonitor.csproj", "{17B355FA-4D47-44C3-8028-96D5324ED807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerMonitor", "ServerMonitor\ServerMonitor.csproj", "{17B355FA-4D47-44C3-8028-96D5324ED807}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5E2766D7-EAEF-4834-8C43-CD99CF439EDA} = {5E2766D7-EAEF-4834-8C43-CD99CF439EDA}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerMonitor.Models", "ServerMonitor.Models\ServerMonitor.Models.csproj", "{5E2766D7-EAEF-4834-8C43-CD99CF439EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,10 @@ Global
 		{17B355FA-4D47-44C3-8028-96D5324ED807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17B355FA-4D47-44C3-8028-96D5324ED807}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17B355FA-4D47-44C3-8028-96D5324ED807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2766D7-EAEF-4834-8C43-CD99CF439EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2766D7-EAEF-4834-8C43-CD99CF439EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2766D7-EAEF-4834-8C43-CD99CF439EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2766D7-EAEF-4834-8C43-CD99CF439EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
