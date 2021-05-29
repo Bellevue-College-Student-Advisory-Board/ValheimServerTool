@@ -1,0 +1,9 @@
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\bin\Debug\netcoreapp3.1\ServerMonitor.Models.deps.json
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\bin\Debug\netcoreapp3.1\ServerMonitor.Models.dll
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\bin\Debug\netcoreapp3.1\ServerMonitor.Models.pdb
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.csprojAssemblyReference.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.AssemblyInfoInputs.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.AssemblyInfo.cs
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.csproj.CoreCompileInputs.cache
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.dll
+C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor.Models\obj\Debug\netcoreapp3.1\ServerMonitor.Models.pdb
