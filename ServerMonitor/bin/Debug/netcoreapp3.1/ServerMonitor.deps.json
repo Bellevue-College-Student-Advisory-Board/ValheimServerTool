@@ -36,6 +36,10 @@
         }
       },
       "ServerMonitor.Models/1.0.0": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.30",
+          "AWSSDK.EC2": "3.7.7.2"
+        },
         "runtime": {
           "ServerMonitor.Models.dll": {}
         }

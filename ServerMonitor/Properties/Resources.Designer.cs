@@ -63,9 +63,9 @@ namespace ServerMonitor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap start_game {
+        public static System.Drawing.Bitmap exit_button {
             get {
-                object obj = ResourceManager.GetObject("start_game", resourceCulture);
+                object obj = ResourceManager.GetObject("exit-button", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace ServerMonitor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap valheim_background {
+        public static System.Drawing.Bitmap github_icon {
             get {
-                object obj = ResourceManager.GetObject("valheim-background", resourceCulture);
+                object obj = ResourceManager.GetObject("github-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,59 @@ namespace ServerMonitor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap valheim_banner {
+        public static System.Drawing.Bitmap launch_button {
             get {
-                object obj = ResourceManager.GetObject("valheim-banner", resourceCulture);
+                object obj = ResourceManager.GetObject("launch-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap minimize_button {
+            get {
+                object obj = ResourceManager.GetObject("minimize-button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap serenity_logo {
+            get {
+                object obj = ResourceManager.GetObject("serenity-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap server_icon {
+            get {
+                object obj = ResourceManager.GetObject("server-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap valheim_background_1120x685 {
+            get {
+                object obj = ResourceManager.GetObject("valheim-background-1120x685", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap valheim_logo {
+            get {
+                object obj = ResourceManager.GetObject("valheim-logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
