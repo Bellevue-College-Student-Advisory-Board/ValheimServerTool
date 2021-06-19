@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +57,7 @@ namespace ServerMonitor
 
             textBoxServerIP.Text = instancesResponse.Reservations[0].Instances[0].PublicIpAddress;
 
+            LaunchValheim(textBoxServerIP.Text);
         }
 
 
@@ -89,6 +91,21 @@ namespace ServerMonitor
             buttonCopyClipboard.Text = "COPIED";
             Clipboard.SetText(textBoxServerIP.Text);
             buttonCopyClipboard.Text = "COPY TO CLIPBOARD";
+        }
+
+        /// <summary>
+        /// Launches Valheim and connects to the given ip
+        /// </summary>
+        /// <param name="ipAddress"></param>
+        private void LaunchValheim(string ipAddress)
+        {
+            ProcessStartInfo valheimStartInfo = new ProcessStartInfo
+          (
+              @$"C:\Program Files (x86)\Steam\steam.exe",
+              $"-applaunch 892970 +connect {ipAddress}:2456"
+          );
+
+            Process.Start(valheimStartInfo);
         }
 
         /// <summary>
