@@ -23,10 +23,8 @@ namespace ServerMonitor
             Application.SetCompatibleTextRenderingDefault(false);
 
             IMainView mainView = new MainView();
-            IServerView serverView = new ServerView();
 
-            IServerPresenter serverPresenter = new ServerPresenter(serverView);
-            IMainPresenter mainPresenter = new MainPresenter(mainView, serverPresenter);
+            IMainPresenter mainPresenter = new MainPresenter(mainView);
 
             Application.Run((MainView)mainView);
         }

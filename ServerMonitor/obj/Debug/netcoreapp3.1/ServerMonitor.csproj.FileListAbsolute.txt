@@ -19,4 +19,3 @@ C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcore
 C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\bin\Debug\netcoreapp3.1\ServerMonitor.Models.dll
 C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\bin\Debug\netcoreapp3.1\ServerMonitor.Models.pdb
 C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.csprojAssemblyReference.cache
-C:\Users\sathk\source\repos\C#\ValheimServerTool\ServerMonitor\obj\Debug\netcoreapp3.1\ServerMonitor.ServerView.resources

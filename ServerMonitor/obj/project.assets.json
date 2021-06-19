@@ -26,6 +26,10 @@
       "ServerMonitor.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AWSSDK.Core": "3.7.0.30",
+          "AWSSDK.EC2": "3.7.7.2"
+        },
         "compile": {
           "bin/placeholder/ServerMonitor.Models.dll": {}
         },
