@@ -64,14 +64,13 @@ namespace ServerMonitor.RequestHandler
 
         private async Task ProcessMessageAsync(SQSEvent.SQSMessage message, ILambdaContext context)
         {
-            context.Logger.LogLine($"Processed message {message.Body}");
-                           
-            string body = ParseJSONRequest(message);
-
+            string type = ParseJSONRequest(message);
+            
             message.MessageAttributes.TryGetValue("RequestID", out SQSEvent.MessageAttribute id);
-
+            string body = CreateJSONResponse(GetServerStatus(type));
             EnqueueMessage(body, id);
-
+            
+            context.Logger.LogLine($"Processed message {message.Body}");
             await Task.CompletedTask;
         }
 
@@ -133,8 +132,6 @@ namespace ServerMonitor.RequestHandler
                 default:
                     return new ServerResponse(null, "stopped", "0.0.0.0");
             }
-
-
         }
 
         private ServerResponse GetServerStatus(string type)
