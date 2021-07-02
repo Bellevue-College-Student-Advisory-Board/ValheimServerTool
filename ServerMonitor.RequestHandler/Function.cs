@@ -99,11 +99,25 @@ namespace ServerMonitor.RequestHandler
             {
                 SendMessageRequest request = new SendMessageRequest(DOWNWARD_QUEUE_URL, body);
 
-                MessageAttributeValue value = new MessageAttributeValue
+                MessageAttributeValue value;
+                if (id != null)
                 {
-                    DataType = "String",
-                    StringValue = id.StringValue
-                };
+                    value = new MessageAttributeValue
+                    {
+                        DataType = "String",
+                        StringValue = id.StringValue
+                    };
+
+                    
+                }
+                else
+                {
+                    value = new MessageAttributeValue
+                    {
+                        DataType = "String",
+                        StringValue = "-1"
+                    };
+                }
 
                 request.MessageAttributes.Add("RequestID", value);
                 Task<SendMessageResponse> response = sqsClient.SendMessageAsync(request);

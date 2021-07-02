@@ -16,6 +16,7 @@ namespace ServerMonitor.Models.Models
         private AmazonEC2Client _ec2Client;
         private AWSCredentials _awsCredentials;
         private static ValheimServer _instance;
+        private static Guid _SessionID;
 
         public event EventHandler ServerStateReceived;
         public event EventHandler ServerStarted;
@@ -44,6 +45,7 @@ namespace ServerMonitor.Models.Models
         {
             _awsCredentials = GetAWSCredentialsByName("valheim");
             _ec2Client = new AmazonEC2Client(_awsCredentials, Amazon.RegionEndpoint.USWest2);
+            _SessionID = Guid.NewGuid();
             UpdateServerStats();
         }
 
@@ -88,12 +90,21 @@ namespace ServerMonitor.Models.Models
             ServerShutdown?.Invoke(new ServerResponse(this.State, this.IPv4), EventArgs.Empty);
         }
 
-        private async void UpdateServerStats()
+        private void UpdateServerStats()
         {
-            DescribeInstancesResponse instancesResponse = await _ec2Client.DescribeInstancesAsync();
-            this.State = instancesResponse.Reservations[0].Instances[0].State.Name;
-            this.IPv4 = instancesResponse.Reservations[0].Instances[0].PublicIpAddress;
+
+            DescribeInstancesRequest instancesRequest = new DescribeInstancesRequest()
+            {
+                InstanceIds = new List<string> { "i-05f9d91ae6210ce14" }
+            };
+
+            Task<DescribeInstancesResponse> instanceResponse = _ec2Client.DescribeInstancesAsync(instancesRequest);
+
+            this.State = instanceResponse.Result.Reservations[0].Instances[0].State.Name;
+            this.IPv4 = instanceResponse.Result.Reservations[0].Instances[0].PublicIpAddress;
+            ServerStateReceived?.Invoke(new ServerResponse(this.State), EventArgs.Empty);
         }
+
         /// <summary>
         /// Gets aws credentials for given profile
         /// </summary>
