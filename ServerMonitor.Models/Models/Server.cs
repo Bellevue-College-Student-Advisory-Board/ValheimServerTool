@@ -43,11 +43,7 @@ namespace ServerMonitor.Models.Models
         /// </summary>
         private Server()
         {
-            _awsCredentials = new BasicAWSCredentials
-            (
-                "AKIAR2CHW7CZ225AWI6R",
-                "Oc7++EXyxUxrprkyk9phr8WW6P0s1sa9RcNj7geM"
-            );
+            _awsCredentials = new BasicAWSCredentials();
             _sessionId = Guid.NewGuid();
             UpwardQueueRequester upwardQueue = new  UpwardQueueRequester(_awsCredentials, _sessionId);
             upwardQueue.RequestServerStatus();
