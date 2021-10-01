@@ -20,5 +20,6 @@
     "tracing-mode"         : "PassThrough",
     "environment-variables" : "",
     "image-tag"             : "",
-    "function-description"  : ""
+    "function-description"  : "",
+    "function-architecture" : "x86_64"
 }

@@ -66,8 +66,8 @@ namespace ServerMonitor.RequestHandler
         {
             string type = ParseJSONRequest(message);
             
-            message.MessageAttributes.TryGetValue("RequestID", out SQSEvent.MessageAttribute id);
-            string body = CreateJSONResponse(GetServerStatus(type));
+            message.MessageAttributes.TryGetValue("request-id", out SQSEvent.MessageAttribute id);
+            string body = CreateJSONResponse(CreateResponse(type));
             EnqueueMessage(body, id);
             
             context.Logger.LogLine($"Processed message {message.Body}");
@@ -79,15 +79,15 @@ namespace ServerMonitor.RequestHandler
             JsonTextReader reader = new JsonTextReader(new StringReader(message.Body));
             JObject jsonObject = JObject.Load(reader);
 
-            string type = (string)jsonObject["Type"];
+            string type = (string)jsonObject["type"];
             return type;
         }
 
         private string CreateJSONResponse(ServerResponse serverResponse)
         {
-            string preformattedJSON = $"{{ \"Type\": \"{serverResponse.Type}\", " +
-                                      $"\"Status\": \"{serverResponse.Status}\", " +
-                                      $"\"IP\": \"{serverResponse.IPv4}\"}}";
+            string preformattedJSON = $"{{ \"type\": \"{serverResponse.Type}\", " +
+                                      $"\"status\": \"{serverResponse.Status}\", " +
+                                      $"\"ip\": \"{serverResponse.IPv4}\"}}";
 
             return preformattedJSON;
         }
@@ -119,7 +119,7 @@ namespace ServerMonitor.RequestHandler
                     };
                 }
 
-                request.MessageAttributes.Add("RequestID", value);
+                request.MessageAttributes.Add("request-id", value);
                 Task<SendMessageResponse> response = sqsClient.SendMessageAsync(request);
 
                 if (response.Result.HttpStatusCode == HttpStatusCode.OK)
@@ -138,17 +138,17 @@ namespace ServerMonitor.RequestHandler
             switch (type)
             {
                 case "status":
-                    return GetServerStatus(type);
+                    return GetServerStatus();
                 case "launch":
-                    return LaunchServer(type);
+                    return LaunchServer();
                 case "close":
-                    return CloseServer(type);
+                    return CloseServer();
                 default:
                     return new ServerResponse(null, "stopped", "0.0.0.0");
             }
         }
 
-        private ServerResponse GetServerStatus(string type)
+        private ServerResponse GetServerStatus()
         {
             using (AmazonEC2Client ec2Client = new AmazonEC2Client())
             {
@@ -162,16 +162,16 @@ namespace ServerMonitor.RequestHandler
                 string state = instancesResponse.Result.Reservations[0].Instances[0].State.Name;
                 string ip = instancesResponse.Result.Reservations[0].Instances[0].PublicIpAddress;
 
-                return new ServerResponse(type, state, ip);
+                return new ServerResponse("status", state, ip);
             }
         }
 
-        private ServerResponse LaunchServer(string type)
+        private ServerResponse LaunchServer()
         {
             return new ServerResponse(null, null, null);
         }
 
-        private ServerResponse CloseServer(string type)
+        private ServerResponse CloseServer()
         {
             return new ServerResponse(null, null, null);
         }

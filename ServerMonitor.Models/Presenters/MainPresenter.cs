@@ -33,9 +33,9 @@ namespace ServerMonitor.Models.Presenters
             MainView.LaunchClicked += OnLaunchClicked;
             MainView.ViewGithubClicked += OnViewGithubClicked;
 
-            ValheimServer.Instance.ServerStateReceived += OnServerStateReceived;
-            ValheimServer.Instance.ServerStarted += OnServerStarted;
-            ValheimServer.Instance.ServerShutdown += OnServerShutdown;
+            Server.Instance.ServerStateReceived += OnServerStateReceived;
+            Server.Instance.ServerStarted += OnServerStarted;
+            Server.Instance.ServerShutdown += OnServerShutdown;
 
         }
 
@@ -46,8 +46,8 @@ namespace ServerMonitor.Models.Presenters
 
         private void OnMainViewLoaded(object sender, EventArgs e)
         {
-            MainView.UpdateStateName(ValheimServer.Instance.State);
-            MainView.UpdateIPv4(ValheimServer.Instance.IPv4);
+            MainView.UpdateStateName(Server.Instance.State);
+            MainView.UpdateIPv4(Server.Instance.IPv4);
             MainView.UpdateCopyright($"© {DateTime.Now.Year}  Project Contributors");
         }
 
@@ -58,7 +58,7 @@ namespace ServerMonitor.Models.Presenters
 
         private void OnMainViewClosed(object sender, EventArgs e)
         {
-            ValheimServer.Instance.Close();
+            Server.Instance.Close();
             MainView.Close();
         }
 
@@ -66,27 +66,27 @@ namespace ServerMonitor.Models.Presenters
         private void OnLaunchClicked(object sender, EventArgs e)
         {
             MainView.EnableWaitCursor = true;
-            ValheimServer.Instance.Start();
+            Server.Instance.Start();
         }
 
         private void OnServerShutdown(object sender, EventArgs e)
         {
-            MainView.UpdateStateName(ValheimServer.Instance.State);
-            MainView.UpdateIPv4(ValheimServer.Instance.IPv4);
+            MainView.UpdateStateName(Server.Instance.State);
+            MainView.UpdateIPv4(Server.Instance.IPv4);
         }
 
         private void OnServerStarted(object sender, EventArgs e)
         {
-            MainView.UpdateStateName(ValheimServer.Instance.State);
-            MainView.UpdateIPv4(ValheimServer.Instance.IPv4);
+            MainView.UpdateStateName(Server.Instance.State);
+            MainView.UpdateIPv4(Server.Instance.IPv4);
 
-            MainView.LaunchGame(@"C:\Program Files (x86)\Steam\steam.exe", $"-applaunch 892970 +connect {ValheimServer.Instance.IPv4}:2456");
+            MainView.LaunchGame(@"C:\Program Files (x86)\Steam\steam.exe", $"-applaunch 892970 +connect {Server.Instance.IPv4}:2456");
             MainView.EnableWaitCursor = false;
         }
 
         private void OnServerStateReceived(object sender, EventArgs e)
         {
-            MainView.UpdateStateName(ValheimServer.Instance.State);
+            MainView.UpdateStateName(Server.Instance.State);
         }
     }
 }
